@@ -1,0 +1,186 @@
+---
+page-layout: full
+sidebar: true
+---
+
+
+::: {.text-center .text-sm-start}
+
+# Germán Blesio
+
+
+:::
+
+::: {.g-col-12 .g-col-sm-4 .order-1 .order-sm-2}
+
+::: {.grid .five-columns}
+
+::: {.g-col-1 .g-col-sm-1}
+<img src="img/profile_photo.jpg" class="img-fluid"><img>
+:::
+
+::: {.g-col-10 .g-col-sm-2}
+Strongly correlated electrons group
+
+Condensed Matter division
+
+[Physics Institute of Rosario (IFIR)](https://www.ifir-conicet.gov.ar/){target="_blank"}
+
+[Ocampo & Esmeralda, S2000EKF](https://maps.app.goo.gl/8b2C89eUhKdjxAEz8){target="_blank"}
+
+Rosario, Santa Fe, Argentina
+
+E-mail: blesio (at) ifir-conicet.gov.ar
+:::
+
+::: {.g-col-1 .g-col-sm-0}
+<!-- ## Scientific profiles -->
+[![](img/Google_Scholar_logo.png){fig-alt="Google Scholar"}](https://scholar.google.com/citations?user=pLnyX60AAAAJ){target="_blank"}
+[![](img/ArXiv_logo_2022.svg.png){fig-alt="arXiv"}](https://arxiv.org/a/blesio_g_1.html){target="_blank"}
+[![](img/Scopus_logo.svg.png){fig-alt="Scopus"}](https://www.scopus.com/authid/detail.uri?authorId=57193012281){target="_blank"} 
+[![](img/1280px-ORCID_logo.svg.png){fig-alt="ORCID"}](https://orcid.org/0000-0002-1962-0969){target="_blank"}
+[![](img/ResearchGate_logo_2015.svg.png){fig-alt="ResearchGate"}](https://www.researchgate.net/profile/German-Blesio){target="_blank"}
+:::
+
+:::
+
+:::
+
+
+
+## Research
+
+
+* **Magnetic order in 2D lattices:** magnetic order of the 2D Heisenberg model in the transition from honeycomb to triangular lattice using Density Matrix Renormalization Group (DMRG); stability of the Nagaoka state for several values of t' and hole doping in the square lattice with a hubbard model with first and second neighbour hopping using DMRG.
+
+* **Kondo problem:** study of a gold nanowire with a copper impurity (gives a SU(4) Kondo effect), and a nickel impurity (gives a two channel S=1 fully compensated Kondo effect). Calculations were made with Non-Crossing Approximation (NCA) and Numerical Renormalization Group ([NRG Ljubljana](http://nrgljubljana.ijs.si/)). The addition of a magnetic onsite anisotropy unveil the topological characteristics of the non-Landau Fermi liquid. This new phase is one of my current line of research.
+
+* **Raman response:** calculation of raman vertex from DFT+DMFT calculations. <!--The <a href="#software">current code</a> is being add as a function of <a href="https://triqs.github.io/triqs/latest/index.html" target="_blank">TRIQS</a> (in particular of <a href="https://triqs.github.io/dft_tools/latest/index.html" target="_blank">DFT Tools</a> that simplifies the usage of Wien2K calculations). Currently I'm also working on obtaining the Raman response of the Sr<sub>2</sub>RuO<sub>4</sub> -->.
+    <!-- <li><strong>Transport properties of Iron under Earth-core conditions: </strong></li> -->
+
+
+## Employment 
+
+I did my Ph.D at the Physics Institute of Rosario ( [IFIR](https://www.ifir-conicet.gov.ar)) with a grant of the National Council of Research, Science and Technology ([CONICET](https://www.conicet.gov.ar)).
+
+From 2021 to 2023, I did a postdoc researcher at the [Jozef Stefan Institute (JSI)](http://www.ijs.si) as part of the [Department of Theoretical Physics](http://web-f1.ijs.si).
+
+In 2023 I was accepted for a permanent research position at the Physics Institute of Rosario ( [IFIR](https://www.ifir-conicet.gov.ar)) and I'm working there since December 2023.
+
+<!-- <a href="cv.pdf" download="cv">Curriculum vitae</a> -->
+
+## Publications
+
+1. **Anisotropy-driven topological quantum phase transition in magnetic impurities**
+
+    G. G. Blesio, L. O. Manuel, and A. Aligia
+
+    [arXiv:2312.17702 (2023)](https://arxiv.org/abs/2312.17702){target="_blank"} 
+
+1. **Influence of oxygen on electronic correlation and transport in iron in the outer Earth's core**
+
+    G. G. Blesio, L. V. Pourovskii, M. Aichhorn, M. Pozzo, D. Alfè, and J. Mravlje
+
+    [arXiv:2304.13962 (2023)](http://arxiv.org/abs/2304.13962){target="_blank"} 
+
+
+1. **Signatures of Hund Metal and Fermi Liquid Behavior in Sr2RuO4 Revealed by Electronic Raman Scattering**
+
+    G. G. Blesio, S. Beck, A. Georges, and J. Mravlje
+
+    [arXiv:2304.13563 (2023)](https://arxiv.org/abs/2304.13563){target="_blank"}
+
+1. **Partially disordered Heisenberg antiferromagnet with short-range stripe correlations**
+
+    G. G. Blesio, F. T. Lisandrini and M. G. Gonzalez
+    
+    [Phys. Rev. B **107**, 134418 (2023)](https://doi.org/10.1103/PhysRevB.107.134418){target="_blank"}
+        or
+    [arXiv:2301.09446 (2023)](https://arxiv.org/abs/2301.09446){target="_blank"}
+
+1. **Topological quantum phase transition in individual Fe Atoms on MoS~2~/Au(111)**
+
+    G. G. Blesio and A. A. Aligia
+    
+    [Phys. Rev. B **108**, 045113 (2023)](https://doi.org/10.1103/PhysRevB.108.045113){target="_blank"}
+        or
+    [arXiv:2301.08159 (2023)](https://arxiv.org/abs/2301.08159){target="_blank"}
+
+1. **Topological quantum phase transition of nickelocene on Cu(100)**
+    
+    G. G. Blesio, R. Žitko, L. O. Manuel, and A. A. Aligia
+
+    [SciPost Phys. **14**, 042 (2023)](https://doi.org/10.21468/SciPostPhys.14.3.042){target="_blank"}
+        or
+    [arXiv:2205.10476 (2022)](https://arxiv.org/abs/2205.10476){target="_blank"}
+
+1. **Iron phthalocyanine on Au(111) is a “non-Landau” Fermi liquid**
+    
+    R. Žitko, G. G. Blesio, L. O. Manuel, and A. A. Aligia
+    
+    [Nat. Commun. **12**, 6027 (2021)](https://doi.org/10.1038/s41467-021-26339-z){target="_blank"}
+        or
+    [arXiv:2105.13248 (2021)](https://arxiv.org/abs/2105.13248){target="_blank"}
+
+1. **Fully compensated Kondo effect for a two-channel spin S=1 impurity**
+    
+    G. G. Blesio, L. O. Manuel, A. A. Aligia, and P. Roura-Bas
+
+    [Phys. Rev. B **100**, 075434 (2019)](https://doi.org/10.1103/PhysRevB.100.075434){target="_blank"}
+        or
+    [arXiv:1906.06799 (2019)](https://arxiv.org/abs/1906.06799){target="_blank"}
+
+1. **Magnetic phase diagram of the infinite-U Hubbard model with nearest- and next-nearest-neighbor hoppings**
+    
+    G. G. Blesio, M. G. Gonzalez, and F. T. Lisandrini
+
+    [Phys. Rev. B **99**, 174411 (2019)](https://doi.org/10.1103/PhysRevB.99.174411){target="_blank"}
+        or
+    [arXiv:1905.05838 (2019)](https://arxiv.org/abs/1905.05838){target="_blank"}
+
+1. **Correlated Partial Disorder in a Weakly Frustrated Quantum Antiferromagnet**
+    
+    M. G. Gonzalez, F. T. Lisandrini, G. G. Blesio, A. E. Trumper, C. J. Gazza, and L. O. Manuel
+
+    [Phys. Rev. Lett. **122**, 017201 (2019)](https://doi.org/10.1103/PhysRevLett.122.017201){target="_blank"}
+        or
+    [arXiv:1804.06720 (2018)](https://arxiv.org/abs/1804.06720){target="_blank"}
+
+1. **Topological quantum phase transition between Fermi liquid phases in an Anderson impurity model**
+    
+    G.G. Blesio, L.O. Manuel, P. Roura-Bas and A.A. Aligia
+
+    [Phys. Rev. B  **98**, 195435 (2018)](https://doi.org/10.1103/PhysRevB.98.195435){target="_blank"}
+        or
+    [arXiv:1805.11518 (2018)](https://arxiv.org/abs/1805.11518){target="_blank"}
+
+1. **Kondo behavior and conductance through 3d impurities in gold chains doped with oxygen**
+
+    M.A. Barral, S. Di Napoli, G. Blesio, P. Roura-Bas, A. Camjayi, L.O. Manuel and A.A. Aligia
+
+    [The Journal of Chemical Physics **146**, 092315 (2017)](https://doi.org/10.1063/1.4973982){target="_blank"}
+        or
+    [arXiv:1701.07080 (2017)](https://arxiv.org/abs/1701.07080){target="_blank"}
+
+
+## Teaching experience
++ Since March 2012 up to 2020, I worked as a Secondary Physics Teacher at the [Instituto Politécnico Superior (IPS)](www.ips.edu.ar){target="_blank"} that is part of the [National University of Rosario (UNR)](www.unr.edu.ar){target="_blank"}. During this time I was responsible of teaching physics to several levels, but also worked on the training of students to participate on the national stage of the Science Olympiad and the Physics Olympiad. In 2019 I was the leader of the Argentinian team in the International Physics Olympiad (IPhO).
+
++ Since May 2014 up to 2020, I worked as Teaching Assistant at the Physics degree of the [Faculty of Natural Science, Engineering and Surveying (FCEIA)](https://www.fceia.unr.edu.ar/){target="_blank"} part of the [National University of Rosario (UNR)](www.unr.edu.ar){target="_blank"}. During this time, I worked on and introduction to the computer (Linux, gnuplot, LibreOffice) and programming (Fortran), and on Computational Physics were topics as digital image processing, neural networks, other machine learning techniques and parallelization were introduced, using C or Python.
+
++ During 2020 I was also the responsible professor for the electrical engineering students of Introduction to Physics and Physics 1 in the same faculty [FCEIA](https://www.fceia.unr.edu.ar){target="_blank"}-[UNR](www.unr.edu.ar){target="_blank"}.</li> 
+
+
+During this process, I participate on some research in the field of physics education related with the areas and levels I was involved at the moment. Some of this research is reflected in the following publications:
+
+1. **Why are we not teaching machine learning at high school? A proposal**
+    
+    I. Evangelista, G. Blesio, E. Benatti
+    
+    [2018 World Engineering Education Forum - Global Engineering Deans Council, **WEEF-GEDC 2018** pp. 1-6 (2019)](https://doi.org/10.1109/WEEF-GEDC.2018.8629750){target="_blank"}
+
+1. **Physics in everyday life: a non-formal course for elderly adults**
+    
+    J. Farina, I. Tabares, C. Silva, G. Blesio, B. Milicic.
+    
+    [Journal of Science Education, **2**, 16, 69-72 (2015)](https://www.scopus.com/record/display.uri?eid=2-s2.0-84939814058&origin=resultslist){target="_blank"}

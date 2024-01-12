@@ -1,0 +1,37 @@
+project:
+  type: website
+  preview:
+    port: 4200
+
+website:
+  title: "Germán Blesio"
+  description: "Personal site - Germán Blesio"
+
+
+  sidebar:
+    # - title: Germán Blesio
+      style: docked
+      search: false
+      # background: dark
+      # header: Germán Blesio
+      contents: 
+        - text: Personal data
+          file: index.qmd
+        - text: Research
+          file: index.qmd#research
+        - text: Employment
+          file: index.qmd#employment
+        - text: Publications
+          file: index.qmd#publications
+        - text: Teaching experience
+          file: index.qmd#teaching-experience
+
+format:
+  html:
+    theme: 
+      - cosmo
+      - styles.scss
+    toc: false
+    lang: en
+    # lang: es
+    format-links: false
