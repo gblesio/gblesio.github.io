@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mediciones · Cambio de Unidades</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f0e8;
+    --paper: #fffef9;
+    --ink: #1a1510;
+    --accent: #b5341c;
+    --accent2: #2a5f8f;
+    --muted: #7a7060;
+    --rule: #d4c9b0;
+    --highlight: #fde68a;
+    --success: #2d6a4f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, var(--rule) 27px, var(--rule) 28px);
+    min-height: 100vh;
+    font-family: 'Manrope', sans-serif;
+    color: var(--ink);
+    padding: 0 0 60px;
+  }
+
+  header {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 18px 32px;
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    border-bottom: 4px solid var(--accent);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.01em;
+  }
+
+  header span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--rule);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .politecnico-badge {
+    margin-left: auto;
+    background: var(--accent);
+    color: white;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    padding: 4px 10px;
+    text-transform: uppercase;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 24px 0;
+  }
+
+  /* ─── INPUT SECTION ─── */
+  .input-card {
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    padding: 32px 36px;
+    margin-bottom: 40px;
+  }
+
+  .input-card h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+  }
+
+  .input-card p {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin-bottom: 28px;
+    line-height: 1.55;
+  }
+
+  .input-row {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  input[type="text"] {
+    flex: 1;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    border: 2px solid var(--ink);
+    background: var(--bg);
+    padding: 12px 18px;
+    outline: none;
+    letter-spacing: 0.04em;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  input[type="text"]::placeholder {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 1.1rem;
+  }
+
+  input[type="text"]:focus {
+    border-color: var(--accent);
+    box-shadow: 3px 3px 0 var(--accent);
+  }
+
+  button.generate {
+    background: var(--accent);
+    color: white;
+    border: 2px solid var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+
+  button.generate:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+
+  button.generate:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--ink);
+  }
+
+  /* ─── EXERCISES SECTION ─── */
+  #exercises {
+    display: none;
+  }
+
+  .sheet-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 3px double var(--ink);
+    padding-bottom: 14px;
+    margin-bottom: 28px;
+  }
+
+  .sheet-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+  }
+
+  .student-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    background: var(--highlight);
+    padding: 4px 12px;
+    border: 1.5px solid var(--ink);
+    letter-spacing: 0.06em;
+  }
+
+  .topic-label {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: white;
+    padding: 2px 8px;
+    margin-bottom: 10px;
+  }
+
+  .topic-longitud  { background: var(--accent2); }
+  .topic-imperial  { background: #6b3fa0; }
+  .topic-tiempo1   { background: #2d7d4f; }
+  .topic-tiempo2   { background: #1a5c38; }
+  .topic-superficie{ background: #8b5e2a; }
+  .topic-volumen   { background: #3a6b8a; }
+
+  .exercise-card {
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    border-left: 5px solid var(--ink);
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    position: relative;
+    transition: box-shadow 0.15s;
+  }
+
+  .exercise-card:hover {
+    box-shadow: 3px 3px 0 var(--rule);
+  }
+
+  .exercise-number {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 36px;
+    height: 36px;
+    background: var(--ink);
+    color: var(--bg);
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .exercise-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    padding-right: 20px;
+  }
+
+  .exercise-text strong {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.95em;
+    color: var(--accent);
+  }
+
+  .hint {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+    border-top: 1px dashed var(--rule);
+    padding-top: 8px;
+  }
+
+  .work-space {
+    margin-top: 14px;
+    border: 1px dashed var(--muted);
+    padding: 10px 14px;
+    min-height: 60px;
+    background: var(--bg);
+  }
+
+  .footer-note {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.04em;
+    border-top: 1px solid var(--rule);
+    padding-top: 18px;
+  }
+
+  @media (max-width: 520px) {
+    .input-row { flex-direction: column; }
+    header { flex-wrap: wrap; }
+    .politecnico-badge { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Mediciones</h1>
+  <span>Instituto Politécnico · UNR · Física</span>
+  <div class="politecnico-badge">Cambio de Unidades</div>
+</header>
+
+<div class="container">
+  <div class="input-card">
+    <h2>Generador de ejercicios</h2>
+    <p>Ingresá tu apellido para recibir tu propio set de 6 ejercicios de cambio de unidades. Cada estudiante recibe valores distintos.</p>
+    <div class="input-row">
+      <input type="text" id="apellidoInput" placeholder="Ej: González" maxlength="40" autocomplete="off" />
+      <button class="generate" onclick="generarEjercicios()">Generar →</button>
+    </div>
+  </div>
+
+  <div id="exercises"></div>
+</div>
+
+<script>
+// ─── SEEDED RNG ───────────────────────────────────────────────
+function hashStr(s) {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function makeRng(seed) {
+  let s = hashStr(seed.toLowerCase().trim());
+  return function(min, max) {
+    s = (Math.imul(1664525, s) + 1013904223) >>> 0;
+    return min + (s % (max - min + 1));
+  };
+}
+
+function pick(rng, arr) {
+  return arr[rng(0, arr.length - 1)];
+}
+
+// ─── EXERCISE GENERATORS ──────────────────────────────────────
+
+// 1) Longitud métrica → metros (mm, cm, dm, km, hm, dam ↔ m)
+function ejercicioLongitud(rng) {
+  const configs = [
+    { desde: 'mm', factor: 1e-3, valores: [45, 120, 380, 75, 215, 560, 830, 95] },
+    { desde: 'cm', factor: 1e-2, valores: [34, 87, 250, 145, 420, 68, 310, 195] },
+    { desde: 'dm', factor: 0.1,  valores: [23, 56, 180, 92, 275, 41, 130, 67] },
+    { desde: 'km', factor: 1000, valores: [2.4, 7.8, 0.35, 5.1, 3.65, 0.82, 12.4, 0.45] },
+    { desde: 'hm', factor: 100,  valores: [4.5, 1.8, 7.2, 0.65, 3.1, 9.4, 0.28, 5.7] },
+    { desde: 'dam', factor: 10,  valores: [8.5, 3.2, 14.6, 6.9, 0.75, 21.3, 4.8, 11.2] },
+  ];
+  const c = pick(rng, configs);
+  const val = pick(rng, c.valores);
+  const result = val * c.factor;
+  return {
+    topic: 'longitud',
+    label: 'Longitud (métrica → m)',
+    text: `Convertí <strong>${fmtVal(val)} ${c.desde}</strong> a metros (m).`,
+    hint: `Recordá: 1 m = ${fmtVal(1/c.factor)} ${c.desde}`,
+    answer: `${fmtVal(val)} ${c.desde} = ${formatNum(result)} m`
+  };
+}
+
+// 2) Unidad imperial a metro (equivalencia dada en cm o mm)
+function ejercicioImperial(rng) {
+  const configs = [
+    {
+      nombre: 'pulgada', simbolo: 'in', eq_val: 2.54, eq_unit: 'cm',
+      factor_a_m: 0.0254,
+      valores: [12, 24, 8, 36, 5, 18, 45, 60],
+    },
+    {
+      nombre: 'pie', simbolo: 'ft', eq_val: 30.48, eq_unit: 'cm',
+      factor_a_m: 0.3048,
+      valores: [5, 8, 3, 12, 6, 15, 4, 10],
+    },
+    {
+      nombre: 'yarda', simbolo: 'yd', eq_val: 914.4, eq_unit: 'mm',
+      factor_a_m: 0.9144,
+      valores: [3, 7, 5, 12, 2, 9, 4, 6],
+    },
+    {
+      nombre: 'milla', simbolo: 'mi', eq_val: 160934, eq_unit: 'cm',
+      factor_a_m: 1609.34,
+      valores: [2, 5, 0.5, 3, 1.5, 4, 0.75, 6],
+    },
+  ];
+  const c = pick(rng, configs);
+  const val = pick(rng, c.valores);
+  const result = val * c.factor_a_m;
+  return {
+    topic: 'imperial',
+    label: 'Unidad imperial → metro',
+    text: `Convertí <strong>${fmtVal(val)} ${c.simbolo}</strong> (${c.nombre}) a metros. <br><small>Dato: 1 ${c.simbolo} = ${fmtVal(c.eq_val)} ${c.eq_unit}</small>`,
+    hint: `Usá el factor de conversión con ${c.eq_unit} primero, luego pasá a metros.`,
+    answer: `${fmtVal(val)} ${c.simbolo} = ${formatNum(result)} m`
+  };
+}
+
+// 3) Tiempo "simple": min↔s, h↔min
+function ejercicioTiempoSimple(rng) {
+  const configs = [
+    { de: 'min', a: 's', factor: 60,    valores: [15, 45, 8, 30, 72, 3, 25, 90] },
+    { de: 's',   a: 'min', factor: 1/60, valores: [120, 300, 45, 90, 600, 180, 75, 240] },
+    { de: 'h',   a: 'min', factor: 60,   valores: [3, 0.5, 2.5, 1.75, 4, 0.25, 1.5, 5] },
+    { de: 'min', a: 'h',   factor: 1/60, valores: [90, 150, 45, 240, 75, 120, 30, 180] },
+  ];
+  const c = pick(rng, configs);
+  const val = pick(rng, c.valores);
+  const result = val * c.factor;
+  return {
+    topic: 'tiempo1',
+    label: 'Tiempo (conversión simple)',
+    text: `Convertí <strong>${fmtVal(val)} ${c.de}</strong> a ${c.a}.`,
+    hint: `Recordá: 1 min = 60 s &nbsp;|&nbsp; 1 h = 60 min`,
+    answer: `${fmtVal(val)} ${c.de} = ${formatNum(result)} ${c.a}`
+  };
+}
+
+// 4) Tiempo "doble": h↔s directo
+function ejercicioTiempoDoble(rng) {
+  const configs = [
+    { de: 'h', a: 's',  factor: 3600,   valores: [2, 0.5, 3.5, 1.25, 4, 0.75, 2.5, 5] },
+    { de: 's', a: 'h',  factor: 1/3600, valores: [7200, 1800, 5400, 900, 10800, 3600, 2700, 14400] },
+  ];
+  const c = pick(rng, configs);
+  const val = pick(rng, c.valores);
+  const result = val * c.factor;
+  return {
+    topic: 'tiempo2',
+    label: 'Tiempo (conversión directa h ↔ s)',
+    text: `Convertí <strong>${fmtVal(val)} ${c.de}</strong> a ${c.a} directamente (sin pasar por minutos).`,
+    hint: `1 h = 60 min = 3 600 s`,
+    answer: `${fmtVal(val)} ${c.de} = ${formatNum(result)} ${c.a}`
+  };
+}
+
+// 5) Superficie
+function ejercicioSuperficie(rng) {
+  const configs = [
+    { de: 'cm²', a: 'm²', factor: 1e-4, valores: [850, 2400, 175, 5600, 320, 1200, 4500, 68] },
+    { de: 'mm²', a: 'm²', factor: 1e-6, valores: [45000, 12000, 8500, 75000, 3200, 96000, 28000, 6400] },
+    { de: 'km²', a: 'm²', factor: 1e6,  valores: [0.85, 2.4, 0.035, 5.6, 1.2, 0.48, 3.15, 0.72] },
+    { de: 'dam²',a: 'm²', factor: 100,  valores: [12.5, 4.8, 23.6, 7.2, 35.4, 0.95, 18.3, 6.1] },
+    { de: 'hm²', a: 'm²', factor: 10000,valores: [3.4, 0.85, 7.2, 1.5, 4.8, 0.32, 9.1, 2.65] },
+    { de: 'm²',  a: 'cm²',factor: 10000,valores: [2.5, 0.8, 7.4, 3.6, 0.45, 5.2, 1.85, 9.3] },
+  ];
+  const c = pick(rng, configs);
+  const val = pick(rng, c.valores);
+  const result = val * c.factor;
+  return {
+    topic: 'superficie',
+    label: 'Superficie',
+    text: `Convertí <strong>${fmtVal(val)} ${c.de}</strong> a ${c.a}.`,
+    hint: `Atención: al cambiar una unidad de longitud, la superficie cambia con el cuadrado del factor.`,
+    answer: `${fmtVal(val)} ${c.de} = ${formatNum(result)} ${c.a}`
+  };
+}
+
+// 6) Volumen
+function ejercicioVolumen(rng) {
+  const configs = [
+    { de: 'cm³', a: 'm³', factor: 1e-6, valores: [850000, 320000, 150000, 480000, 72000, 960000, 215000, 630000] },
+    { de: 'mm³', a: 'cm³',factor: 0.001,valores: [45000, 128000, 8500, 75000, 32000, 96000, 280000, 64000] },
+    { de: 'dm³', a: 'm³', factor: 0.001,valores: [250, 85, 640, 120, 475, 32, 810, 196] },
+    { de: 'cm³', a: 'dm³',factor: 0.001,valores: [4500, 12000, 850, 7500, 3200, 9600, 2800, 6400] },
+    { de: 'hm³', a: 'm³', factor: 1e6,  valores: [0.45, 2.8, 0.085, 1.2, 3.6, 0.72, 5.4, 0.31] },
+    { de: 'dam³',a: 'm³', factor: 1000, valores: [0.45, 2.8, 0.085, 1.2, 3.6, 0.72, 5.4, 0.31] },
+  ];
+  const c = pick(rng, configs);
+  const val = pick(rng, c.valores);
+  const result = val * c.factor;
+  return {
+    topic: 'volumen',
+    label: 'Volumen',
+    text: `Convertí <strong>${fmtVal(val)} ${c.de}</strong> a ${c.a}.`,
+    hint: `Recordá: para pasar unidades de volumen, el factor se eleva al cubo.`,
+    answer: `${fmtVal(val)} ${c.de} = ${formatNum(result)} ${c.a}`
+  };
+}
+
+// ─── NUMBER FORMATTER ─────────────────────────────────────────
+// Formats a number using comma as decimal separator (Argentine convention)
+function formatNum(n) {
+  if (n === 0) return '0';
+  const abs = Math.abs(n);
+  if (abs >= 0.001 && abs < 1000000) {
+    const rounded = parseFloat(n.toPrecision(5));
+    // toLocaleString 'es-AR' uses comma as decimal separator
+    return rounded.toLocaleString('es-AR', { maximumSignificantDigits: 5 });
+  }
+  // Scientific notation
+  const exp = Math.floor(Math.log10(abs));
+  const mant = n / Math.pow(10, exp);
+  const mantStr = parseFloat(mant.toPrecision(4)).toLocaleString('es-AR', { maximumSignificantDigits: 4 });
+  return `${mantStr} × 10<sup>${exp}</sup>`;
+}
+
+// Format a plain value (for use in enunciado text) — no HTML tags
+function fmtVal(n) {
+  if (Number.isInteger(n)) return n.toString();
+  return n.toLocaleString('es-AR', { maximumSignificantDigits: 6 });
+}
+
+// ─── TOPIC COLORS ─────────────────────────────────────────────
+const topicColors = {
+  longitud:   '#2a5f8f',
+  imperial:   '#6b3fa0',
+  tiempo1:    '#2d7d4f',
+  tiempo2:    '#1a5c38',
+  superficie: '#8b5e2a',
+  volumen:    '#3a6b8a',
+};
+
+// ─── MAIN GENERATOR ───────────────────────────────────────────
+function generarEjercicios() {
+  const apellido = document.getElementById('apellidoInput').value.trim();
+  if (!apellido) {
+    document.getElementById('apellidoInput').focus();
+    return;
+  }
+
+  const rng = makeRng(apellido + '|salt42');
+
+  const ejercicios = [
+    ejercicioLongitud(rng),
+    ejercicioImperial(rng),
+    ejercicioTiempoSimple(rng),
+    ejercicioTiempoDoble(rng),
+    ejercicioSuperficie(rng),
+    ejercicioVolumen(rng),
+  ];
+
+  const container = document.getElementById('exercises');
+  container.style.display = 'block';
+
+  let html = `
+    <div class="sheet-header">
+      <h2>Ejercicios de cambio de unidades</h2>
+      <div class="student-name">${apellido.toUpperCase()}</div>
+    </div>
+  `;
+
+  ejercicios.forEach((ej, i) => {
+    const color = topicColors[ej.topic] || '#333';
+    html += `
+      <div class="exercise-card">
+        <div class="exercise-number">${i + 1}</div>
+        <div class="topic-label" style="background:${color}">${ej.label}</div>
+        <p class="exercise-text">${ej.text}</p>
+      </div>
+    `;
+  });
+
+  html += `<p class="footer-note">Instituto Politécnico · UNR · Dpto. de Física · Mediciones</p>`;
+
+  container.innerHTML = html;
+  container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Allow Enter key
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('apellidoInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') generarEjercicios();
+  });
+});
+</script>
+</body>
+</html>
