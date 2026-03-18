@@ -330,13 +330,11 @@ function ejercicioLongitud(rng) {
   ];
   const c = pick(rng, configs);
   const val = pick(rng, c.valores);
-  const result = val * c.factor;
   return {
     topic: 'longitud',
     label: 'Longitud (métrica → m)',
     text: `Convertí <strong>${fmtVal(val)}${c.desde}</strong> a metros (m).`,
     hint: `Recordá: 1 m = ${fmtVal(1/c.factor)} ${c.desde}`,
-    answer: `${fmtVal(val)} ${c.desde} = ${formatNum(result)} m`
   };
 }
 
@@ -366,13 +364,11 @@ function ejercicioImperial(rng) {
   ];
   const c = pick(rng, configs);
   const val = pick(rng, c.valores);
-  const result = val * c.factor_a_m;
   return {
     topic: 'imperial',
     label: 'Unidad imperial → metro',
     text: `Convertí <strong>${fmtVal(val)}${c.simbolo}</strong> (${c.nombre}) a metros. <br><small>Dato: 1 ${c.simbolo} = ${fmtVal(c.eq_val)} ${c.eq_unit}</small>`,
     hint: `Usá el factor de conversión con ${c.eq_unit} primero, luego pasá a metros.`,
-    answer: `${fmtVal(val)} ${c.simbolo} = ${formatNum(result)} m`
   };
 }
 
@@ -386,13 +382,11 @@ function ejercicioTiempoSimple(rng) {
   ];
   const c = pick(rng, configs);
   const val = pick(rng, c.valores);
-  const result = val * c.factor;
   return {
     topic: 'tiempo1',
     label: 'Tiempo (conversión simple)',
     text: `Convertí <strong>${fmtVal(val)}${c.de}</strong> a ${c.a}.`,
     hint: `Recordá: 1 min = 60 s &nbsp;|&nbsp; 1 h = 60 min`,
-    answer: `${fmtVal(val)} ${c.de} = ${formatNum(result)} ${c.a}`
   };
 }
 
@@ -404,13 +398,11 @@ function ejercicioTiempoDoble(rng) {
   ];
   const c = pick(rng, configs);
   const val = pick(rng, c.valores);
-  const result = val * c.factor;
   return {
     topic: 'tiempo2',
     label: 'Tiempo (conversión directa h ↔ s)',
     text: `Convertí <strong>${fmtVal(val)}${c.de}</strong> a ${c.a} directamente (sin pasar por minutos).`,
     hint: `1 h = 60 min = 3 600 s`,
-    answer: `${fmtVal(val)} ${c.de} = ${formatNum(result)} ${c.a}`
   };
 }
 
@@ -426,13 +418,11 @@ function ejercicioSuperficie(rng) {
   ];
   const c = pick(rng, configs);
   const val = pick(rng, c.valores);
-  const result = val * c.factor;
   return {
     topic: 'superficie',
     label: 'Superficie',
     text: `Convertí <strong>${fmtVal(val)}${c.de}</strong> a ${c.a}.`,
     hint: `Atención: al cambiar una unidad de longitud, la superficie cambia con el cuadrado del factor.`,
-    answer: `${fmtVal(val)} ${c.de} = ${formatNum(result)} ${c.a}`
   };
 }
 
@@ -448,13 +438,11 @@ function ejercicioVolumen(rng) {
   ];
   const c = pick(rng, configs);
   const val = pick(rng, c.valores);
-  const result = val * c.factor;
   return {
     topic: 'volumen',
     label: 'Volumen',
     text: `Convertí <strong>${fmtVal(val)}${c.de}</strong> a ${c.a}.`,
     hint: `Recordá: para pasar unidades de volumen, el factor se eleva al cubo.`,
-    answer: `${fmtVal(val)} ${c.de} = ${formatNum(result)} ${c.a}`
   };
 }
 
